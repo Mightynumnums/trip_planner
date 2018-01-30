@@ -22,5 +22,4 @@ const buildMarker = function (type, coords) {
     return fullStackMarker;
 }
 
-
 module.exports = buildMarker;

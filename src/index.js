@@ -20,6 +20,6 @@ const map = new mapboxgl.Map({
 // const fullStackMarker = new mapboxgl.Marker( markerDomEl).setLngLat([-74.009151, 40.705086]).addTo(map);
 
 
-//buildMarker('hotel', [40.7385, 73.9856]).addTo(map);
-const marker = buildMarker('activity', [-74.009151, 40.705086]).addTo(map);
+buildMarker('hotel', [-73.9856,  40.7385]).addTo(map);
+buildMarker('activity', [-74.009151, 40.705086]).addTo(map);
 //console.log(marker);

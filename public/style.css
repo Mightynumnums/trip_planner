@@ -5,10 +5,45 @@
   body {
     margin: 0;
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-    background-color: #C1B5AD;
+    background-color:#ea885e;
+  }
+  header {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 10px;
+    background-color:  #bd5252;
+    align-items: center;
+    height: 3rem;
+    color: white;
+  }
+
+ #headerTitle {
+    letter-spacing: 3px;
+    font-weight: bold;
+  }
+ 
+
+  nav ul {
+    width: 100%;
+    display: inline-flex;
+    list-style: none;
+  }
+  nav li {
+    margin: 20px 10px;
+    padding-right:20px;
+  }
+  nav li a {
+    text-decoration: none;
+    letter-spacing: 2px;
+    color: white;
+  }
+
+  nav li a:hover {
+    color: black;
   }
 
   #map {
-    height: 100vh;
-    width: 100vw;
+    margin-top: 2px;
+    height: 75vh;
+    width: 75vh;
   }
