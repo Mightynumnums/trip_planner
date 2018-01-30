@@ -60,30 +60,11 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 0);
+/******/ 	return __webpack_require__(__webpack_require__.s = 1);
 /******/ })
 /************************************************************************/
 /******/ ([
 /* 0 */
-/***/ (function(module, exports, __webpack_require__) {
-
-console.log('Yaaaaas queen 👑');
-
-const mapboxgl = __webpack_require__(1);
-
-mapboxgl.accessToken = 'pk.eyJ1IjoiYWxla3NzaGluZWxldmEiLCJhIjoiY2pkMXZnYW91MGlzcjJ3cGExYWplZDBudCJ9.ZJyH5Obt-EYKod3LgmBwYw';
-
-const map = new mapboxgl.Map({
-    container: 'map',
-    center: [-74.009, 40.705], // FullStack NY coordinates; alternatively, use [-87.6354, 41.8885] for Chicago
-    zoom: 12, // starting zoom
-    style: "mapbox://styles/mapbox/streets-v10" // mapbox has lots of different map styles available
-});
-
-
-
-/***/ }),
-/* 1 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var require;var require;(function(f){if(true){module.exports=f()}else if(typeof define==="function"&&define.amd){define([],f)}else{var g;if(typeof window!=="undefined"){g=window}else if(typeof global!=="undefined"){g=global}else if(typeof self!=="undefined"){g=self}else{g=this}g.mapboxgl = f()}})(function(){var define,module,exports;return (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return require(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(_dereq_,module,exports){
@@ -652,6 +633,69 @@ module.exports={"$version":8,"$root":{"version":{"required":true,"type":"enum","
 
 
 //# sourceMappingURL=mapbox-gl.js.map
+
+/***/ }),
+/* 1 */
+/***/ (function(module, exports, __webpack_require__) {
+
+console.log('Yaaaaas queen 👑');
+
+const mapboxgl = __webpack_require__(0);
+const buildMarker = __webpack_require__(2)
+
+mapboxgl.accessToken = 'pk.eyJ1IjoiYWxla3NzaGluZWxldmEiLCJhIjoiY2pkMXZnYW91MGlzcjJ3cGExYWplZDBudCJ9.ZJyH5Obt-EYKod3LgmBwYw';
+
+const map = new mapboxgl.Map({
+    container: 'map',
+    center: [-74.009, 40.705], // FullStack NY coordinates; alternatively, use [-87.6354, 41.8885] for Chicago
+    zoom: 12, // starting zoom
+    style: "mapbox://styles/mapbox/streets-v10" // mapbox has lots of different map styles available
+});
+
+// const markerDomEl = document.createElement("div"); // Create a new, detached DIV
+//     markerDomEl.style.width = "32px";
+//     markerDomEl.style.height = "39px";
+//     markerDomEl.style.backgroundImage = "url(http://i.imgur.com/WbMOfMl.png)";
+
+// const fullStackMarker = new mapboxgl.Marker( markerDomEl).setLngLat([-74.009151, 40.705086]).addTo(map);
+
+
+//buildMarker('hotel', [40.7385, 73.9856]).addTo(map);
+const marker = buildMarker('activity', [-74.009151, 40.705086]).addTo(map);
+//console.log(marker);
+
+
+/***/ }),
+/* 2 */
+/***/ (function(module, exports, __webpack_require__) {
+
+const mapboxgl = __webpack_require__(0);
+
+//function
+//module.export dat function ...from here...yes
+
+const buildMarker = function (type, coords) {
+    const markerDomEl = document.createElement("div"); // Create a new, detached DIV
+    markerDomEl.style.width = "32px";
+    markerDomEl.style.height = "39px";
+
+    if (type === "activity") {
+        console.log('hi!')
+        markerDomEl.style.backgroundImage ="url(http://i.imgur.com/WbMOfMl.png)"
+    }
+    if (type === "hotel") {
+        markerDomEl.style.backgroundImage = "url(http://i.imgur.com/D9574Cu.png)"
+    }
+    if (type === "restaurant") {
+        markerDomEl.style.backgroundImage = "url(http://i.imgur.com/cqR6pUI.png)"
+    }
+        let fullStackMarker = new mapboxgl.Marker(markerDomEl).setLngLat(coords);
+    return fullStackMarker;
+}
+
+
+module.exports = buildMarker;
+
 
 /***/ })
 /******/ ]);
